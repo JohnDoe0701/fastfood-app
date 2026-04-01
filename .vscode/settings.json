@@ -1,0 +1,7 @@
+{
+  "java.project.sourcePaths": [
+    "fastfood/src/main/java",
+    "fastfood/src/test/java"
+  ],
+  "java.project.outputPath": "fastfood/target/classes"
+}

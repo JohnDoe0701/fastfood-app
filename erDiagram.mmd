@@ -1,0 +1,44 @@
+erDiagram
+    akfood_menu_items ||--o{ akfood_categories : "category_id"
+    akfood_orders ||--o{ akfood_users : "user_id"
+    akfood_order_items ||--o{ akfood_orders : "order_id"
+    akfood_order_items ||--o{ akfood_menu_items : "menu_item_id"
+
+    AKFOOD_AUTHORITIES {
+    }
+    AKFOOD_CATEGORIES {
+        int id  PK "Not Null"
+        string description
+        string name  UK "Not Null"
+    }
+    AKFOOD_MENU_ITEMS {
+        int id  PK "Not Null"
+        bit available  "Not Null"
+        string description
+        string name  "Not Null"
+        decimal price  "Not Null"
+        int category_id  FK "Not Null"
+    }
+    AKFOOD_ORDERS {
+        int id  PK "Not Null"
+        datetime placed_at  "Not Null"
+        enum status  "Not Null"
+        decimal total_amount  "Not Null"
+        int user_id  FK "Not Null"
+    }
+    AKFOOD_ORDER_ITEMS {
+        int id  PK "Not Null"
+        decimal line_total  "Not Null"
+        int quantity  "Not Null"
+        decimal unit_price  "Not Null"
+        int menu_item_id  FK "Not Null"
+        int order_id  FK "Not Null"
+    }
+    AKFOOD_USERS {
+        int id  PK "Not Null"
+        string email  UK "Not Null"
+        string full_name  "Not Null"
+        string phone
+    }
+    AKFOOD_USER_AUTHORITIES {
+    }

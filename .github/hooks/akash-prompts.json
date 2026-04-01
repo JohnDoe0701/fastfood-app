@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "hooks": {
+    "userPromptSubmitted": [
+      {
+        "type": "command",
+        "bash": "echo \"\\{\\\"timestamp\\\":\\\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\\\",\\\"prompt\\\":\\\"$1\\\"}\" >> akashlogs.json",
+        "cwd": ".."
+      }
+    ],
+    "postToolUse": [
+      {
+        "type": "command",
+        "bash": "npx prettier --write . && git add -A",
+        "cwd": ".",
+        "timeoutSec": 30
+      }
+    ]
+  }
+}

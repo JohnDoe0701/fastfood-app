@@ -1,0 +1,12 @@
+{
+	"hooks": {
+		"PreToolUse": [
+			{
+				"type": "command",
+				"windows": "powershell -Command \"Add-Content -Path preusetoolakashlog.json -Value ('{\\\"timestamp\\\":\\\"' + (Get-Date -Format o) + '\\\",\\\"tool\\\":\\\"preTool\\\"}' | ConvertFrom-Json | ConvertTo-Json -Compress)\"",
+				"bash": "echo \"{\\\"timestamp\\\":\\\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\\\",\\\"tool\\\":\\\"preTool\\\"}\" >> preusetoolakashlog.json",
+				"cwd": ".."
+			}
+		]
+	}
+}

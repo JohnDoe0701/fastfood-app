@@ -1,0 +1,16 @@
+{
+  "servers": {
+    "dbhub": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@bytebase/dbhub@latest",
+        "--transport",
+        "stdio",
+        "--dsn",
+        "mysql://htctrnguser:12345Welcome@172.16.51.88:3306/hms"
+      ]
+    }
+  }
+}
